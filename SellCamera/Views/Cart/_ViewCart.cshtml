@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SellCamera.Models.OtherClass.Cart>
+
+<div class="goods-data clearfix">
+    <div class="table-wrapper-responsive">
+        <table summary="Shopping cart">
+            <tbody>
+                <tr>
+                    <th class="goods-page-image">Ảnh</th>
+                    <th class="goods-page-description">Mô tả</th>
+                    <th class="goods-page-quantity">Số lượng</th>
+                    <th class="goods-page-price">Giá đơn vị</th>
+                    <th class="goods-page-total" colspan="2">Tổng</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="goods-page-image">
+                            <a href="#"><img src="~/assets/Image/@item.TenLoai/@item.tenhang.Replace(" ",string.Empty)/@item.Anh" alt="@item.TenSP"></a>
+                        </td>
+                        <td class="goods-page-description">
+                            <h3><a href="#">@item.TenSP</a></h3>
+                        </td>
+                        <td>
+                            <div class="le-quantity">
+                                <form>
+                                    <a class="minus" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#Cart" class="del-goods" href="/Cart/subtract?MaSP=@item.MaSP"></a>
+                                    <input name="quantity" id="number" class="sl" readonly="readonly" type="text" value="@item.Soluong">
+                                    <a class="plus" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#Cart" class="del-goods" href="/Cart/add?MaSP=@item.MaSP"></a>
+                                </form>
+                            </div>
+                        </td>
+                        @if (item.Giamgia != null)
+                        {
+                            <td class="goods-page-price">
+                                <strong>@string.Format("{0:0,0}", item.giá_mới) <span style="text-decoration:line-through">@string.Format("{0:0,0}", item.Gia)</span><br /> VNĐ</strong>
+                            </td>
+                            <td class="goods-page-total">
+                                <strong>@string.Format("{0:0,0}", item.giá_mới * item.Soluong) VNĐ</strong>
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="goods-page-price">
+                                <strong>@string.Format("{0:0,0}", item.Gia) VNĐ</strong>
+                            </td>
+                            <td class="goods-page-total">
+                                <strong>@string.Format("{0:0,0}", item.Gia * item.Soluong) VNĐ</strong>
+                            </td>
+                        }
+
+                        <td class="del-goods-col">
+                            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#Cart" class="del-goods" href="/Cart/delete?MaSP=@item.MaSP" ></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="shopping-total">
+        <ul>
+            <li>
+                <em>Sub total</em>
+                <strong class="price"><span>$</span>47.00</strong>
+            </li>
+            <li>
+                <em>Shipping cost</em>
+                <strong class="price"><span>$</span>3.00</strong>
+            </li>
+            <li class="shopping-total-price">
+                <em>Total</em>
+                <strong class="price"><span>$</span>50.00</strong>
+            </li>
+        </ul>
+    </div>
+</div>
+<button class="btn btn-default" type="submit">Continue shopping <i class="fa fa-shopping-cart"></i></button>
+<button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button>

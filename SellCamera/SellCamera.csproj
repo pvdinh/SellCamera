@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,10 +128,29 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\BaoHanh.cs" />
+    <Compile Include="Models\Binhluan.cs" />
+    <Compile Include="Models\ChitietDH.cs" />
+    <Compile Include="Models\DonhangKH.cs" />
+    <Compile Include="Models\HangSX.cs" />
+    <Compile Include="Models\Hopdong.cs" />
+    <Compile Include="Models\Khuyenmai.cs" />
+    <Compile Include="Models\LoaiSP.cs" />
+    <Compile Include="Models\Nhacungcap.cs" />
+    <Compile Include="Models\OtherClass\Cart.Methods.cs" />
+    <Compile Include="Models\OtherClass\Cart.Models.cs" />
+    <Compile Include="Models\OtherClass\InfoProduct.cs" />
+    <Compile Include="Models\Sanpham.cs" />
+    <Compile Include="Models\SellCameraDataModel.cs" />
+    <Compile Include="Models\SPkhuyenmai.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\Thongsokythuat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +195,7 @@
     <Content Include="assets\corporate\img\logos\logo-shop-orange.png" />
     <Content Include="assets\corporate\img\logos\logo-shop-red.png" />
     <Content Include="assets\corporate\img\logos\logo-shop-turquoise.png" />
+    <Content Include="assets\corporate\img\logos\logo.png" />
     <Content Include="assets\corporate\img\logos\shop-logo-red.png" />
     <Content Include="assets\corporate\img\new.png" />
     <Content Include="assets\corporate\img\payments\american-express.jpg" />
@@ -183,9 +211,27 @@
     <Content Include="assets\corporate\img\up.png" />
     <Content Include="assets\corporate\scripts\back-to-top.js" />
     <Content Include="assets\corporate\scripts\layout.js" />
+    <Content Include="assets\Image\Camera Wifi\Ezviz\camera-chuong-cua-wifi-ezviz-db1-cs-db1-a0-1b3wpfr-3.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Ezviz\camera-ezviz-cs-cv346-a0-7a3wfr-mini-pano-mat-ca-360-do-a.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Ezviz\camera-ip-wifi-ezviz-cs-cv246-c6n-1080p-2mp-g.png" />
+    <Content Include="assets\Image\Camera Wifi\Ezviz\camera-wifi-ezviz-c1c-cs-c1c-d0-1d2wfr-1080p-3.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Ezviz\camera-wifi-ngoai-troi-phien-ban-mau-ban-dem-ezviz-c3w-full-color-cs-cv310-a0-3c2wfrl-t2.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Ezviz\ezviz-cs-cv246-ez360-c6cn-720p.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Hikvision\camera-ip-dome-hong-ngoai-2-0-megapixel-hikvision-ds-2cd2123g0-i-1.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Hikvision\camera-ip-hong-ngoai-2-0-megapixel-hikvision-ds-2cd2021g1-i.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Hikvision\camera-ip-wifi-1mp-720p-hilook-ipc-c100-d-w-1.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Hikvision\camera-ip-wifi-2mp-1080p-hilook-ipc-c120-d-w-g1.jpg" />
+    <Content Include="assets\Image\Camera Wifi\J-TECH\camera-wifi-hong-ngoai-j-tech-hd5637w3-a.jpg" />
+    <Content Include="assets\Image\Camera Wifi\J-TECH\camera-wifi-hong-ngoai-khong-day-j-tech-hd5725w3.jpg" />
+    <Content Include="assets\Image\Camera Wifi\J-TECH\camera-wifi-j-tech-hd6600b-quay-360-do-dam-thoai-2-chieu-2.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Vitacam\camera-ngoai-troi-vitacam-dz1080-xoay-350-do-dam-thoai-2-chieu-g.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Vitacam\camera-vitacam-c1080-2-0mpx-full-hd-1080-chuan-h265x.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Vitacam\camera-wifi-khong-day-vitacam-db02-b.jpg" />
+    <Content Include="assets\Image\Camera Wifi\Vitacam\camera-wifi-op-tran-vitacam-vr1080-g.jpg" />
     <Content Include="assets\pages\css\animate.css" />
     <Content Include="assets\pages\css\components.css" />
     <Content Include="assets\pages\css\gallery.css" />
+    <Content Include="assets\pages\css\main.css" />
     <Content Include="assets\pages\css\portfolio.css" />
     <Content Include="assets\pages\css\slider.css" />
     <Content Include="assets\pages\css\style-shop.css" />
@@ -573,6 +619,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -592,10 +640,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\_ViewProductOther.cshtml" />
+    <Content Include="Views\Cart\_ViewCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="assets\Image\Camera hành trình\" />
+    <Folder Include="assets\Image\Phụ kiện camera\" />
+    <Folder Include="assets\Image\Đầu ghi camera\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
