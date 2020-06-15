@@ -16,12 +16,13 @@ namespace SellCamera.Controllers
         Cart cart = new Cart();
         public ActionResult Index(int? MaSP)
         {
-            Session["user"] = 1001;
+            Session["user"] = 1000;
             int MaKH = int.Parse(Session["user"].ToString());
             cart.listInCart = new Cart().LoadCart(MaKH);
             if (MaSP != null)
             {
                 cart.add((int)MaSP, MaKH);
+                cart.listInCart = new Cart().LoadCart(MaKH);
             }
             ViewBag.countincart = cart.listInCart.Count();
             return View();
@@ -52,7 +53,7 @@ namespace SellCamera.Controllers
             int MaKH = int.Parse(Session["user"].ToString());
             cart.delete(MaSP, MaKH);
             cart.listInCart = new Cart().LoadCart(MaKH);
-            return PartialView("_ViewCart", cart.listInCart);
+            return RedirectToAction("Index","Cart");
         }
         public ActionResult ProductOther()
         {

@@ -49,7 +49,7 @@
                         }
 
                         <td class="del-goods-col">
-                            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#Cart" class="del-goods" href="/Cart/delete?MaSP=@item.MaSP" ></a>
+                            <a class="del-goods" href="/Cart/delete?MaSP=@item.MaSP" onclick="return confirm('Bạn có muốn xoá sản phẩm này khỏi giỏ hàng ??')" ></a>
                         </td>
                     </tr>
                 }

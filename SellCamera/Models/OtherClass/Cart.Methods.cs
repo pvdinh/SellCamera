@@ -48,7 +48,7 @@ namespace SellCamera.Models.OtherClass
             else
             {
                 ChitietDH ct = new ChitietDH();
-                ct.MaChitietDH = db.ChitietDHs.Count() + 1;
+                ct.MaChitietDH = db.ChitietDHs.OrderByDescending(s => s.MaChitietDH).Select(s => s.MaChitietDH).FirstOrDefault() + 1;
                 ct.MaDH = Dhkh.MaDH;
                 ct.MaSP = MaSP;
                 ct.Soluong = 1;
