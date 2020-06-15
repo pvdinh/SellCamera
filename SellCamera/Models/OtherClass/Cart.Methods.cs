@@ -13,7 +13,7 @@ namespace SellCamera.Models.OtherClass
         public void Init(int idKh)
         {
             DonhangKH x = new DonhangKH();
-            x.MaDH = db.DonhangKHs.ToList().Count() + 1;
+            x.MaDH = db.DonhangKHs.OrderByDescending(s=>s.MaDH).Select(s=>s.MaDH).FirstOrDefault() + 1;
             x.MaKH = idKh;
             x.Phivanchuyen = 0;
             x.PhuongthucTT = "Tiền Mặt";
@@ -81,6 +81,24 @@ namespace SellCamera.Models.OtherClass
             var x = db.ChitietDHs.Where(s => s.MaSP == MaSP && s.MaDH == MaDH).FirstOrDefault(); //tìm chi tiết đơnn hàng của sản phẩm
             db.ChitietDHs.Remove(x);
             db.SaveChanges();
+        }
+
+        public double? Total(int idKH)
+        {
+            double? Total=0;
+            List<Cart> list = new Cart().LoadCart(idKH); //load danh sách sản phẩm
+            foreach(var item in list)
+            {
+                if(item.Giamgia != null)
+                {
+                    Total += giá_mới;
+                }
+                else
+                {
+                    Total += Gia;
+                }
+            }
+            return Total;
         }
     }
 }

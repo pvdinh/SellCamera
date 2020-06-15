@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<SellCamera.Models.OtherClass.Cart>
-@{ 
+@{
     double? total = 0;
 }
 <div class="goods-data clearfix">
@@ -23,13 +23,7 @@
                             <h3><a href="#">@item.TenSP</a></h3>
                         </td>
                         <td>
-                            <div class="le-quantity">
-                                <form>
-                                    <a class="minus" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#Cart" class="del-goods" href="/Cart/subtract?MaSP=@item.MaSP"></a>
-                                    <input name="quantity" id="number" class="sl" readonly="readonly" type="text" value="@item.Soluong">
-                                    <a class="plus" data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#Cart" class="del-goods" href="/Cart/add?MaSP=@item.MaSP"></a>
-                                </form>
-                            </div>
+                            <strong style="font-size:20px;">@item.Soluong</strong> 
                         </td>
                         @if (item.Giamgia != null)
                         {
@@ -47,13 +41,10 @@
                                 <strong>@string.Format("{0:0,0}", item.Gia) VNĐ</strong>
                             </td>
                             <td class="goods-page-total">
-                                <strong >@string.Format("{0:0,0}", item.Gia * item.Soluong) VNĐ</strong>
+                                <strong>@string.Format("{0:0,0}", item.Gia * item.Soluong) VNĐ</strong>
                             </td>
                             total += item.Gia * item.Soluong;
                         }
-                        <td class="del-goods-col">
-                            <a class="del-goods" href="/Cart/delete?MaSP=@item.MaSP" onclick="return confirm('Bạn có muốn xoá sản phẩm này khỏi giỏ hàng ??')" ></a>
-                        </td>
                     </tr>
                 }
             </tbody>
@@ -77,5 +68,3 @@
         </ul>
     </div>
 </div>
-<button class="btn btn-default" type="button" onclick="window.location.href='/Home/index'">Continue shopping <i class="fa fa-shopping-cart"></i></button>
-<button class="btn btn-primary" type="button" onclick="window.location.href='/Checkout/index'">Checkout <i class="fa fa-check"></i></button>

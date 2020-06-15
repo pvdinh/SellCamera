@@ -16,7 +16,7 @@ namespace SellCamera.Controllers
         Cart cart = new Cart();
         public ActionResult Index(int? MaSP)
         {
-            Session["user"] = 1000;
+            Session["user"] = 1001;
             int MaKH = int.Parse(Session["user"].ToString());
             cart.listInCart = new Cart().LoadCart(MaKH);
             if (MaSP != null)

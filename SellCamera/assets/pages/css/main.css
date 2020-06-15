@@ -72,3 +72,284 @@
         font-size: 20px;
         background-color: #fff;
     }
+.le-radio {
+    opacity: 0;
+    margin: 0 !important;
+    vertical-align: middle;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    height: 15px;
+}
+
+    .le-radio + .fake-box {
+        border-radius: 0px;
+        position: relative;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin: 0px 6px 0 0;
+        vertical-align: top;
+        border: 1px solid #e0e0e0;
+        background-color: #fff;
+    }
+
+    .le-radio:hover,
+    .le-radio:focus {
+        cursor: pointer;
+    }
+
+        .le-radio:hover + .fake-box:after,
+        .le-radio:focus + .fake-box:after {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            content: "";
+            background-color: #3d3d3d;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+    .le-radio:checked + .fake-box:after {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+.le-checkbox {
+    margin: 7px 0 0 0 !important;
+    vertical-align: middle;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 10px;
+}
+
+    .le-checkbox.big + .fake-box {
+        border-radius: 0;
+        width: 15px;
+        height: 15px;
+    }
+
+    .le-checkbox + .fake-box {
+        border-radius: 2px;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0px 5px 0 0;
+        vertical-align: middle;
+        border: 1px solid #e0e0e0;
+        background-color: #fff;
+    }
+
+    .le-checkbox:hover,
+    .le-checkbox:focus {
+        cursor: pointer;
+    }
+
+        .le-checkbox:hover + .fake-box,
+        .le-checkbox:focus + .fake-box {
+            background-color: #f9f9f9;
+        }
+
+.le-select {
+    background-color: #fff;
+    border: 1px solid #ececec;
+    padding: 5px 16px 7px 5px;
+    color: #3d3d3d;
+    width: 100%;
+    font-size: 13px;
+    width: auto;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+    .le-select .le-select-in {
+        width: auto;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .le-select select {
+        position: absolute;
+        width: 100% !important;
+        bottom: 0;
+        height: 32px !important;
+        left: 0px;
+    }
+
+    .le-select:after {
+        content: "\f107";
+        font-family: fontawesome;
+        color: #3d3d3d;
+        font-size: 15px;
+        height: 13px;
+        position: absolute;
+        right: 6px;
+        top: 21%;
+    }
+
+.le-links {
+    list-style: none;
+}
+
+    .le-links li {
+        line-height: 27px;
+    }
+
+        .le-links li a {
+            font-size: 14px;
+            text-transform: capitalize;
+        }
+
+            .le-links li a:hover:before {
+                margin: 0 8px 0 0;
+            }
+
+            .le-links li a,
+            .le-links li a:before {
+                color: #3d3d3d;
+            }
+
+                .le-links li a:before {
+                    font-size: 14px;
+                    line-height: 15px;
+                    margin: 0 5px 0 0;
+                    content: "\f105";
+                    font-family: fontawesome;
+                    -webkit-transition: all 0.3s ease;
+                    -moz-transition: all 0.3s ease;
+                    -o-transition: all 0.3s ease;
+                    transition: all 0.3s ease;
+                }
+                #checkout-page .billing-address .le-checkbox {
+  display: inline-block;
+  vertical-align: top;
+}
+#checkout-page .billing-address .placeholder {
+  text-transform: capitalize;
+}
+#checkout-page .billing-address form {
+  margin: 23px 0 0 0;
+}
+#checkout-page .billing-address .le-input {
+  padding: 9px;
+}
+#checkout-page .billing-address .field-row {
+  margin-bottom: 25px;
+}
+#checkout-page #create-account {
+  font-size: 13px;
+  line-height: 24px;
+}
+#checkout-page #shipping-address {
+  margin: 66px 0 0 0;
+}
+#checkout-page #shipping-address form {
+  margin: 24px 0 0 0;
+  font-size: 14px;
+}
+#checkout-page #your-order {
+  margin: 58px 0 0 0;
+}
+#checkout-page #your-order .order-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 24px 0 25px 0;
+}
+#checkout-page #your-order .order-item:first-child {
+  margin-top: 16px;
+}
+#checkout-page #your-order .order-item .qty {
+  font-weight: 700;
+  font-size: 18px;
+  display: block;
+  margin: 14px 0 0 0;
+  color: #3d3d3d;
+}
+#checkout-page #your-order .order-item .title {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+#checkout-page #your-order .order-item .title a {
+  margin: 0 0 0 -42px;
+}
+#checkout-page #your-order .order-item .title,
+#checkout-page #your-order .order-item .title a {
+  line-height: 27px;
+  color: #3d3d3d;
+}
+#checkout-page #your-order .order-item .brand {
+  margin: 0 0 0 -42px;
+  font-size: 10px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+#checkout-page #your-order .order-item .price {
+  text-align: right;
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 46px;
+}
+#checkout-page #subtotal-holder {
+  margin: 44px 0 0 0;
+}
+#checkout-page #subtotal-holder .radio-group .radio-label {
+  margin-bottom: 12px;
+}
+#checkout-page #subtotal-holder .tabled-data li label {
+  min-width: 230px;
+}
+#checkout-page #subtotal-holder .tabled-data li .value {
+  width: 140px;
+}
+#checkout-page #total-field {
+  margin-top: 11px;
+}
+#checkout-page #total-field label {
+  line-height: 24px;
+}
+#checkout-page #total-field .value {
+  font-size: 21px;
+  line-height: 30px;
+}
+#checkout-page .place-order-button {
+  text-align: right;
+  margin: 23px 0 52px 0;
+}
+#payment-method-options {
+  margin: 90px 0 0 0;
+}
+#payment-method-options .payment-method-option {
+  padding: 26px 0 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+#payment-method-options .payment-method-option:first-child {
+  padding-top: 0;
+}
+#payment-method-options .payment-method-option .radio-label {
+  vertical-align: top;
+  margin-top: -3px;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+#payment-method-options .payment-method-option .fake-box {
+  margin-right: 20px;
+}
+#payment-method-options .payment-method-option .value {
+  text-transform: capitalize;
+}
+#payment-method-options .payment-method-option .value p {
+  text-transform: none;
+}
