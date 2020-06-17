@@ -91,11 +91,11 @@ namespace SellCamera.Models.OtherClass
             {
                 if(item.Giamgia != null)
                 {
-                    Total += item.giá_mới;
+                    Total += item.giá_mới * item.Soluong;
                 }
                 else
                 {
-                    Total += item.Gia;
+                    Total += item.Gia * item.Soluong;
                 }
             }
             return Total;

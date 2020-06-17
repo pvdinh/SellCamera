@@ -16,16 +16,22 @@ namespace SellCamera.Controllers
         Cart cart = new Cart();
         public ActionResult Index(int? MaSP)
         {
-            Session["user"] = 1001;
-            int MaKH = int.Parse(Session["user"].ToString());
-            cart.listInCart = new Cart().LoadCart(MaKH);
-            if (MaSP != null)
+            if (Session["user"] != null)
             {
-                cart.add((int)MaSP, MaKH);
+                int MaKH = int.Parse(Session["user"].ToString());
                 cart.listInCart = new Cart().LoadCart(MaKH);
+                if (MaSP != null)
+                {
+                    cart.add((int)MaSP, MaKH);
+                    cart.listInCart = new Cart().LoadCart(MaKH);
+                }
+                ViewBag.countincart = cart.listInCart.Count();
+                return View();
             }
-            ViewBag.countincart = cart.listInCart.Count();
-            return View();
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult Cart()
@@ -33,6 +39,20 @@ namespace SellCamera.Controllers
             int MaKH = int.Parse(Session["user"].ToString());
             cart.listInCart = new Cart().LoadCart(MaKH);
             return PartialView("_ViewCart", cart.listInCart);
+        }
+        public ActionResult CartInLayout()
+        {
+            if (Session["user"] != null)
+            {
+            int MaKH = int.Parse(Session["user"].ToString());
+            cart.listInCart = new Cart().LoadCart(MaKH);
+            ViewBag.countproduct = new Cart().Total(MaKH);
+            return PartialView("_ViewCartInLayout", cart.listInCart);
+            }
+            else
+            {
+                return PartialView("_NoView");
+            }
         }
         public ActionResult add(int MaSP)
         {

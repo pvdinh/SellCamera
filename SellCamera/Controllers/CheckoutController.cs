@@ -16,11 +16,17 @@ namespace SellCamera.Controllers
         Cart cart = new Cart();
         public ActionResult Index()
         {
-            Session["user"] = 1001;
-            int MaKH = int.Parse(Session["user"].ToString());
-            cart.listInCart = new Cart().LoadCart(MaKH);
-            ViewBag.countincart = cart.listInCart.Count();
-            return View();
+            if (Session["user"] != null)
+            {
+                int MaKH = int.Parse(Session["user"].ToString());
+                cart.listInCart = new Cart().LoadCart(MaKH);
+                ViewBag.countincart = cart.listInCart.Count();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
         public ActionResult Cart()
         {

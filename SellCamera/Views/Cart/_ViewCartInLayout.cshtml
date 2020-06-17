@@ -1,0 +1,43 @@
+﻿@using SellCamera.Models.OtherClass
+@model IEnumerable<SellCamera.Models.OtherClass.Cart>
+<div class="top-cart-info">
+    @{
+        int coutproduct = 0;
+    }
+    @foreach (var item in Model)
+    {
+        coutproduct += item.Soluong;
+    }
+    <a href="#" class="top-cart-info-count">@coutproduct sản phẩm</a>
+    <a href="#" class="top-cart-info-value">@string.Format("{0:0,0}", ViewBag.countproduct)</a>
+</div>
+<i class="fa fa-shopping-cart"></i>
+
+<div class="top-cart-content-wrapper">
+    <div class="top-cart-content" style="width:380px;">
+        <ul class="scroller" style="height: 200px;">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="shop-item.html"><img src="~/assets/Image/@item.TenLoai/@item.tenhang.Replace(" ",string.Empty)/@item.Anh" alt="@item.TenSP" width="37" height="34"></a>
+                    <span class="cart-content-count">x @item.Soluong</span>
+                    <strong><a href="shop-item.html">@item.TenSP</a></strong>
+                    @if (item.Giamgia == null)
+                    {
+                        <em>@string.Format("{0:0,0}", item.Gia * item.Soluong)</em>
+                    }
+                    else
+                    {
+                        <em>@string.Format("{0:0,0}", item.giá_mới * item.Soluong)</em><br />
+                        <em>@string.Format("{0:0,0}", item.Gia * item.Soluong)</em>
+                    }
+                    <a class="del-goods" href="/Cart/delete?MaSP=@item.MaSP" onclick="return confirm('Bạn có muốn xoá sản phẩm này khỏi giỏ hàng ??')"></a>
+                </li>
+            }
+        </ul>
+        <div class="text-right">
+            <a href="/Cart/index" class="btn btn-default">Xem</a>
+            <a href="/Checkout/index" class="btn btn-primary">Mua hàng</a>
+        </div>
+    </div>
+</div>

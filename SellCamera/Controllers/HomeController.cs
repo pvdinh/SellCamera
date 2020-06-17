@@ -10,6 +10,7 @@ namespace SellCamera.Controllers
     {
         public ActionResult Index()
         {
+            Session["user"] = 1003;
             return View();
         }
 

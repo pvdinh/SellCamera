@@ -649,6 +649,9 @@
     <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Views\Checkout\_ViewCart.cshtml" />
     <Content Include="Views\Checkout\_ViewInfoCustomer.cshtml" />
+    <Content Include="Views\Cart\_ViewCartInLayout.cshtml" />
+    <Content Include="Views\Cart\_NoView.cshtml" />
+    <Content Include="Views\Shared\_LayoutCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
