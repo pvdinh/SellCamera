@@ -35,19 +35,21 @@ namespace SellCamera.Controllers
             return PartialView("_ViewInfoCustomer", User);
         }
         [HttpPost]
-        public ActionResult result(Account user, string group2)
+        public ActionResult result(Account user,string ghichu, string group2)
         {
             int MaKH = int.Parse(Session["user"].ToString());
             /*cập nhật lại thông tin khách hàng*/
-            SqlParameter[] param = new SqlParameter[]
+            new Account().Update_Account(user, MaKH);
+            /*===================================*/
+
+            /*cập nhật lại thông tin đơn hàng*/
+            if(group2 == null)
             {
-                new SqlParameter("Hoten",user.Hoten),
-                new SqlParameter("Email",user.Email),
-                new SqlParameter("Phonenumber",user.Phonenumber),
-                new SqlParameter("address",user.Address),
-                new SqlParameter("idKH",MaKH)
-            };
-            db.Database.ExecuteSqlCommand("update_checkout_user @Hoten,@Email,@Phonenumber,@address,@idKH", param);
+                TempData["alertcheckout"] = "Bạn chưa chọn phương thức thanh toán";
+                TempData["AlertType"] = "alert-warning";
+                return RedirectToAction("index", "Checkout");
+            }
+            else new DonhangKH().Checkout(MaKH, ghichu, group2);
             /*===================================*/
             return RedirectToAction("index", "Cart");
         }

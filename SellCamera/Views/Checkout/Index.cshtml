@@ -6,6 +6,14 @@
 @*Thu vien ajax*@
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<div>
+    @if (TempData["alertcheckout"] != null)
+    {
+        <div id="AlertBox" class="alert @TempData["AlertType"] " style="text-align:center;">
+            @TempData["alertcheckout"]
+        </div>
+    }
+</div>
 <div class="main">
     <div class="container">
         <!-- BEGIN SIDEBAR & CONTENT -->
@@ -54,5 +62,5 @@
     </div>
 </div>
 <script>
-    document.title="Giỏ hàng"
+    document.title="Thanh toán"
 </script>

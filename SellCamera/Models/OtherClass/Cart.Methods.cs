@@ -16,7 +16,7 @@ namespace SellCamera.Models.OtherClass
             x.MaDH = db.DonhangKHs.OrderByDescending(s=>s.MaDH).Select(s=>s.MaDH).FirstOrDefault() + 1;
             x.MaKH = idKh;
             x.Phivanchuyen = 0;
-            x.PhuongthucTT = "Tiền Mặt";
+            x.PhuongthucTT = "NULL";
             x.TongTien = 0;
             x.Ngaydatmua = DateTime.Now;
             x.Tinhtrangdonhang = 0;
@@ -91,11 +91,11 @@ namespace SellCamera.Models.OtherClass
             {
                 if(item.Giamgia != null)
                 {
-                    Total += giá_mới;
+                    Total += item.giá_mới;
                 }
                 else
                 {
-                    Total += Gia;
+                    Total += item.Gia;
                 }
             }
             return Total;

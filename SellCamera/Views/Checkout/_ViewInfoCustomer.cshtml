@@ -5,35 +5,35 @@
             <div class="form-group">
                 <label class="col-md-2 control-label">Người nhận :</label>
                 <div class="col-md-10">
-                    <input class="form-control" name="Hoten" required="required" type="text" value="@Model.Hoten" >
+                    <input class="form-control" name="Hoten" required="true" type="text" value="@Model.Hoten" >
                     <span class="field-validation-valid" data-valmsg-for="buyer" data-valmsg-replace="true"></span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label">Email :</label>
                 <div class="col-md-10">
-                    <input class="form-control" name="Email" required="required" type="text" value="@Model.Email" >
+                    <input class="form-control" name="Email" required="v" type="text" value="@Model.Email" >
                     <span class="field-validation-valid" data-valmsg-for="seller" data-valmsg-replace="true"></span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label" type="number">Điện thoại :</label>
                 <div class="col-md-10">
-                    <input class="form-control" name="Phonenumber" required="required" type="number" value="@int.Parse(Model.Phonenumber)">
+                    <input class="form-control" name="Phonenumber" required="true" type="number" value="@int.Parse(Model.Phonenumber)">
                     <span class="field-validation-valid" data-valmsg-for="phoneNumber" data-valmsg-replace="true"></span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label">Địa chỉ :</label>
                 <div class="col-md-10">
-                    <input class="form-control" name="Address" required="required" type="text" value="@Model.Address" aria-required="true">
+                    <input class="form-control" name="Address" required="true" type="text" value="@Model.Address" aria-required="true">
                     <span class="field-validation-valid" data-valmsg-for="address" data-valmsg-replace="true"></span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label">Ghi chú :</label>
                 <div class="col-md-10">
-                    <textarea class="form-control" cols="20" id="Note" name="Note" rows="2"></textarea>
+                    <textarea class="form-control" cols="20" id="Note" name="ghichu" rows="2"></textarea>
                     <span class="field-validation-valid" data-valmsg-for="Note" data-valmsg-replace="true"></span>
                 </div>
             </div>
