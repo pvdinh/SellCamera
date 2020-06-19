@@ -28,12 +28,12 @@
                         @if (item.Giamgia != null)
                         {
                             <td class="goods-page-price">
-                                <strong>@string.Format("{0:0,0}", item.giá_mới) <span style="text-decoration:line-through">@string.Format("{0:0,0}", item.Gia)</span><br /> VNĐ</strong>
+                                <strong>@string.Format("{0:0,0}", item.giamoi) <span style="text-decoration:line-through">@string.Format("{0:0,0}", item.Gia)</span><br /> VNĐ</strong>
                             </td>
                             <td class="goods-page-total">
-                                <strong>@string.Format("{0:0,0}", item.giá_mới * item.Soluong) VNĐ</strong>
+                                <strong>@string.Format("{0:0,0}", item.giamoi * item.Soluong) VNĐ</strong>
                             </td>
-                            total += item.giá_mới * item.Soluong;
+                            total += item.giamoi * item.Soluong;
                         }
                         else
                         {

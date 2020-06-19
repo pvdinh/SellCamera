@@ -44,10 +44,10 @@ namespace SellCamera.Controllers
         {
             if (Session["user"] != null)
             {
-            int MaKH = int.Parse(Session["user"].ToString());
-            cart.listInCart = new Cart().LoadCart(MaKH);
-            ViewBag.countproduct = new Cart().Total(MaKH);
-            return PartialView("_ViewCartInLayout", cart.listInCart);
+                int MaKH = int.Parse(Session["user"].ToString());
+                cart.listInCart = new Cart().LoadCart(MaKH);
+                ViewBag.countproduct = new Cart().Total(MaKH);
+                return PartialView("_ViewCartInLayout", cart.listInCart);
             }
             else
             {
@@ -73,7 +73,7 @@ namespace SellCamera.Controllers
             int MaKH = int.Parse(Session["user"].ToString());
             cart.delete(MaSP, MaKH);
             cart.listInCart = new Cart().LoadCart(MaKH);
-            return RedirectToAction("Index","Cart");
+            return RedirectToAction("Index", "Cart");
         }
         public ActionResult ProductOther()
         {

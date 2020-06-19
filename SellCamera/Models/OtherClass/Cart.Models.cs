@@ -21,7 +21,7 @@ namespace SellCamera.Models.OtherClass
         public string tenhang { get; set; }
         public double Gia { get; set; }
         public Nullable<int> Giamgia { get; set; }
-        public Nullable<double> giá_mới { get; set; }
+        public Nullable<double> giamoi { get; set; }
         public List<Cart> listInCart { get; set; }
     }
 }

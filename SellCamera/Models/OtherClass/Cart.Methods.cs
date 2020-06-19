@@ -110,7 +110,7 @@ namespace SellCamera.Models.OtherClass
             {
                 if(item.Giamgia != null)
                 {
-                    Total += item.giá_mới * item.Soluong;
+                    Total += item.giamoi * item.Soluong;
                 }
                 else
                 {

@@ -17,7 +17,8 @@ namespace SellCamera.Areas.ADMIN
             context.MapRoute(
                 "ADMIN_default",
                 "ADMIN/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "SellCamera.Areas.ADMIN.Controllers"}
             );
         }
     }
