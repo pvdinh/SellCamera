@@ -101,7 +101,7 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 
             <!-- BEGIN CART -->
             <div class="top-cart-block" id="CartInLayout">
-                @{ Html.RenderAction("CartInLayout", "Cart");}
+                @RenderSection("IconCart", required: true);
             </div>
             <!--END CART -->
             <!-- BEGIN NAVIGATION -->
