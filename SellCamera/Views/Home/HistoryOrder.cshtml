@@ -1,0 +1,129 @@
+﻿@model IEnumerable<SellCamera.Models.OtherClass.Cart>
+@{
+    ViewBag.Title = "HistoryOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section IconCart{
+    @{ Html.RenderAction("CartInLayout", "Cart");}
+}
+<div class="main">
+    <div class="container">
+        @if (ViewBag.countinhistory != null && ViewBag.countinhistory > 0)
+        {
+            foreach (var it in ViewBag.data)
+            {
+                <div class="row margin-bottom-40">
+                    <div class="col-md-12 col-sm-12">
+                        <h1>Lịch sử mua hàng ngày @it.Ngaydatmua</h1>
+                    </div>
+                    <div class="goods-data clearfix">
+                        <div class="table-wrapper-responsive">
+                            <table summary="Shopping cart">
+                                <tbody>
+                                    <tr>
+                                        <th class="goods-page-image">Ảnh</th>
+                                        <th class="goods-page-description">Mô tả</th>
+                                        <th class="goods-page-quantity">Số lượng</th>
+                                        <th class="goods-page-price">Giá đơn vị</th>
+                                        <th class="goods-page-total" colspan="2">Tổng</th>
+                                    </tr>
+                                    @{
+                                        double? total = 0;
+                                    }
+                                    @foreach (var item in Model)
+                                    {
+                                        if (it.MaDH == item.MaDH)
+                                        {
+                                            <tr>
+                                                <td class="goods-page-image">
+                                                    <a href="#"><img src="~/assets/Image/@item.TenLoai/@item.tenhang.Replace(" ", string.Empty)/@item.Anh" alt="@item.TenSP"></a>
+                                                </td>
+                                                <td class="goods-page-description">
+                                                    <h3><a href="#">@item.TenSP</a></h3>
+                                                </td>
+                                                <td>
+                                                    <strong style="font-size:20px;">@item.Soluong</strong>
+                                                </td>
+                                                @if (item.Giamgia != null)
+                                                {
+                                                    <td class="goods-page-price">
+                                                        <strong>@string.Format("{0:0,0}", item.giá_mới) <span style="text-decoration:line-through">@string.Format("{0:0,0}", item.Gia)</span><br /> VNĐ</strong>
+                                                    </td>
+                                                    <td class="goods-page-total">
+                                                        <strong>@string.Format("{0:0,0}", item.giá_mới * item.Soluong) VNĐ</strong>
+                                                    </td>
+                                                    total += item.giá_mới * item.Soluong;
+                                                }
+                                                else
+                                                {
+                                                    <td class="goods-page-price">
+                                                        <strong>@string.Format("{0:0,0}", item.Gia) VNĐ</strong>
+                                                    </td>
+                                                    <td class="goods-page-total">
+                                                        <strong>@string.Format("{0:0,0}", item.Gia * item.Soluong) VNĐ</strong>
+                                                    </td>
+                                                    total += item.Gia * item.Soluong;
+                                                }
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="shopping-total" style="float:left;width:auto;">
+                            @if (string.Compare(it.ghichu,"",true)!=0)
+                            {
+                                <h5>Ghi chú : @it.ghichu</h5>
+                            }
+                        </div>
+                        <div class="shopping-total">
+                            <ul>
+                                <li class="shopping-total-price">
+                                    <em>Total</em>
+                                    <strong>@string.Format("{0:0,0}", total) VNĐ</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            if (Session["user"] != null)
+            {
+                <div class="row margin-bottom-40">
+                    <!-- BEGIN CONTENT -->
+                    <div class="col-md-12 col-sm-12">
+                        <h1>Giỏ Hàng</h1>
+                        <div class="shopping-cart-page">
+                            <div class="shopping-cart-data clearfix">
+                                <p>Lịch sử mua hàng hiện đang trống !</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END CONTENT -->
+                </div>
+            }
+            else
+            {
+                <div class="row margin-bottom-40">
+                    <!-- BEGIN CONTENT -->
+                    <div class="col-md-12 col-sm-12">
+                        <h1>Bạn chưa đăng nhập !</h1>
+                        <div class="shopping-cart-page">
+                            <div class="shopping-cart-data clearfix" style="font-size:17px;">
+                                <p><a href="#"> Đăng nhập</a> hoặc<a href="#">Đăng ký</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END CONTENT -->
+                </div>
+            }
+        }
+        <!-- BEGIN SIMILAR PRODUCTS -->
+        @{ Html.RenderAction("ProductOther", "Cart");}
+        <!-- END SIMILAR PRODUCTS -->
+    </div>
+</div>
+

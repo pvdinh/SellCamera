@@ -148,6 +148,7 @@
     <Compile Include="Models\Nhacungcap.cs" />
     <Compile Include="Models\OtherClass\Cart.Methods.cs" />
     <Compile Include="Models\OtherClass\Cart.Models.cs" />
+    <Compile Include="Models\OtherClass\HistoryOrder.cs" />
     <Compile Include="Models\OtherClass\InfoProduct.cs" />
     <Compile Include="Models\Sanpham.cs" />
     <Compile Include="Models\SellCameraDataModel.cs" />
@@ -651,6 +652,7 @@
     <Content Include="Views\Checkout\_ViewInfoCustomer.cshtml" />
     <Content Include="Views\Cart\_ViewCartInLayout.cshtml" />
     <Content Include="Views\Cart\_NoView.cshtml" />
+    <Content Include="Views\Home\HistoryOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
