@@ -40,10 +40,19 @@ namespace SellCamera.Models.OtherClass
             List<Cart> list = new Cart().LoadCart(idKH); //dành cho trường hợp cart có sản phẩm trước đó
             if (list.Where(s => s.MaSP == MaSP).FirstOrDefault() != null)
             {
+                //Nếu sản phẩm đã có trong giỏ hàng thì tăng sl lên 1 và giảm số lượng trong kho đi 1
                 int MaDH = list[0].MaDH;
                 var x = db.ChitietDHs.Where(s => s.MaSP == MaSP && s.MaDH == MaDH).FirstOrDefault();
                 x.Soluong += 1;
                 x.Thanhtien += x.Thanhtien;
+                //===================================================================================
+                var y = db.Sanphams.Where(s => s.MaSP == MaSP).FirstOrDefault();
+                y.SoLuong -= 1;
+                if(y.SoLuong < 0)
+                {
+                    y.SoLuong = 0;
+                    x.Soluong -= 1;
+                }
                 db.SaveChanges();
             }
             else
@@ -55,6 +64,10 @@ namespace SellCamera.Models.OtherClass
                 ct.Soluong = 1;
                 ct.Thanhtien = Sp.Gia;
                 db.ChitietDHs.Add(ct);
+                //giảm số lượng trong kho đi 1
+                var y = db.Sanphams.Where(s => s.MaSP == MaSP).FirstOrDefault();
+                y.SoLuong -= 1;
+                db.SaveChanges();
 
                 // edit by slvp
                 int max;
@@ -85,6 +98,8 @@ namespace SellCamera.Models.OtherClass
             {
                 x.Soluong -= 1;
                 x.Thanhtien -= x.Thanhtien;
+                var y = db.Sanphams.Where(s => s.MaSP == MaSP).FirstOrDefault();
+                y.SoLuong += 1; //tăng số lượng trong kho lên 1
                 db.SaveChanges();
             }
             else
@@ -99,6 +114,8 @@ namespace SellCamera.Models.OtherClass
             int MaDH = list[0].MaDH;
             var x = db.ChitietDHs.Where(s => s.MaSP == MaSP && s.MaDH == MaDH).FirstOrDefault(); //tìm chi tiết đơnn hàng của sản phẩm
             db.ChitietDHs.Remove(x);
+            var y = db.Sanphams.Where(s => s.MaSP == MaSP).FirstOrDefault();
+            y.SoLuong += x.Soluong; //tăng số lượng sp trong kho bằng số lượng sp đã xoá đi
             db.SaveChanges();
         }
 
