@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -54,6 +55,24 @@ namespace SellCamera.Models.OtherClass
                 ct.Soluong = 1;
                 ct.Thanhtien = Sp.Gia;
                 db.ChitietDHs.Add(ct);
+
+                // edit by slvp
+                int max;
+                if (db.BaoHanhs.Count() == 0)
+                {
+                    max = 0;
+                }
+                else
+                {
+                    var a = db.BaoHanhs.OrderByDescending(p => p.Mabaohanh).FirstOrDefault();
+                    max = a.Mabaohanh;                   
+                }
+              
+                db.Database.SqlQuery<BaoHanh>("USP_INSERT_baohanh @ID @IDchitietDH @THOIGIANBAOHANH @STT", new SqlParameter("@ID",max+1),
+                                                                                                           new SqlParameter("@IDchitietDH", ct.MaChitietDH),
+                                                                                                           new SqlParameter("@THOIGIANBAOHANH","1 nam"),
+                                                                                                           new SqlParameter("@STT",1));
+                //end
                 db.SaveChanges();
             }
         }
