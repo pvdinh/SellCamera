@@ -64,8 +64,8 @@ namespace SellCamera.Models.OtherClass
                 }
                 else
                 {
-                    var a = db.BaoHanhs.OrderByDescending(p => p.Mabaohanh).FirstOrDefault();
-                    max = a.Mabaohanh;                   
+                    var a = db.BaoHanhs.OrderByDescending(p => p.Mabaohanh).Select(s=>s.Mabaohanh).FirstOrDefault();
+                    max = a;                   
                 }
               
                 db.Database.SqlQuery<BaoHanh>("USP_INSERT_baohanh @ID @IDchitietDH @THOIGIANBAOHANH @STT", new SqlParameter("@ID",max+1),
