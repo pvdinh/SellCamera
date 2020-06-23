@@ -33,5 +33,7 @@ namespace SellCamera.Models
         public virtual DonhangKH DonhangKH { get; set; }
 
         public virtual Sanpham Sanpham { get; set; }
+
+        public List<ChitietDH> ListCTDH { get; set;}
     }
 }

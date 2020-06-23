@@ -141,8 +141,10 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Account.Method.cs" />
     <Compile Include="Models\BaoHanh.cs" />
+    <Compile Include="Models\BaoHanh.Methods.cs" />
     <Compile Include="Models\Binhluan.cs" />
     <Compile Include="Models\ChitietDH.cs" />
+    <Compile Include="Models\ChitietDH.Methods.cs" />
     <Compile Include="Models\DonhangKH.cs" />
     <Compile Include="Models\DonhangKH.Method.cs" />
     <Compile Include="Models\HangSX.cs" />

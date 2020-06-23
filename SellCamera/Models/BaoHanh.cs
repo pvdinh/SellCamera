@@ -18,7 +18,7 @@ namespace SellCamera.Models
         [StringLength(50)]
         public string thoigianbaohanh { get; set; }
 
-        public int? status { get; set; }
+        public int? sTT { get; set; }
 
         public DateTime? Ngayhetbaohanh { get; set; }
 

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SellCamera.Models;
 using SellCamera.Areas.ADMIN.model;
 
 namespace SellCamera.Controllers
@@ -59,7 +60,23 @@ namespace SellCamera.Controllers
                 return RedirectToAction("index", "Checkout");
             }
             else
-            {               
+            {
+
+                var list = new ChitietDH().getID_ctDH(user);
+               
+                foreach(var item in list)
+                {
+
+                    BaoHanh temp = new BaoHanh()
+                    {
+                        Mabaohanh = item.MaChitietDH,
+                        MaSp = item.MaSP,
+                        thoigianbaohanh = "1 NĂM",
+                        sTT = 1,
+                        Ngayhetbaohanh = DateTime.Now.AddYears(+1)    
+                    };
+                    new BaoHanh().add(temp);
+                }
                 new DonhangKH().Checkout(MaKH, ghichu, group2);
             }
             /*===================================*/
