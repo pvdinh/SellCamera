@@ -48,7 +48,7 @@ namespace SellCamera.Models.OtherClass
                 //===================================================================================
                 var y = db.Sanphams.Where(s => s.MaSP == MaSP).FirstOrDefault();
                 y.SoLuong -= 1;
-                if(y.SoLuong < 0)
+                if(y.SoLuong <= 0)
                 {
                     y.SoLuong = 0;
                     x.Soluong -= 1;
@@ -66,7 +66,30 @@ namespace SellCamera.Models.OtherClass
                 db.ChitietDHs.Add(ct);
                 //giảm số lượng trong kho đi 1
                 var y = db.Sanphams.Where(s => s.MaSP == MaSP).FirstOrDefault();
-                y.SoLuong -= 1;      
+                if (y.SoLuong >= 1)
+                {
+                    y.SoLuong -= 1;
+                }
+                else ct.Soluong = 0;
+                db.SaveChanges();
+
+                // edit by slvp
+                int max;
+                if (db.BaoHanhs.Count() == 0)
+                {
+                    max = 0;
+                }
+                else
+                {
+                    var a = db.BaoHanhs.OrderByDescending(p => p.Mabaohanh).Select(s=>s.Mabaohanh).FirstOrDefault();
+                    max = a;                   
+                }
+              
+                db.Database.SqlQuery<BaoHanh>("USP_INSERT_baohanh @ID @IDchitietDH @THOIGIANBAOHANH @STT", new SqlParameter("@ID",max+1),
+                                                                                                           new SqlParameter("@IDchitietDH", ct.MaChitietDH),
+                                                                                                           new SqlParameter("@THOIGIANBAOHANH","1 nam"),
+                                                                                                           new SqlParameter("@STT",1));
+                //end
                 db.SaveChanges();
             }
         }
@@ -85,7 +108,12 @@ namespace SellCamera.Models.OtherClass
             }
             else
             {
-                x.Soluong = 1;
+                var y = db.Sanphams.Where(s => s.MaSP == MaSP).FirstOrDefault();
+                if (y.SoLuong >= 1)
+                {
+                    x.Soluong = 1;
+                }
+                else x.Soluong = 0;
                 db.SaveChanges();
             }
         }
