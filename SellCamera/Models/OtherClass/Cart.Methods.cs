@@ -66,26 +66,7 @@ namespace SellCamera.Models.OtherClass
                 db.ChitietDHs.Add(ct);
                 //giảm số lượng trong kho đi 1
                 var y = db.Sanphams.Where(s => s.MaSP == MaSP).FirstOrDefault();
-                y.SoLuong -= 1;
-                db.SaveChanges();
-
-                // edit by slvp
-                int max;
-                if (db.BaoHanhs.Count() == 0)
-                {
-                    max = 0;
-                }
-                else
-                {
-                    var a = db.BaoHanhs.OrderByDescending(p => p.Mabaohanh).Select(s=>s.Mabaohanh).FirstOrDefault();
-                    max = a;                   
-                }
-              
-                db.Database.SqlQuery<BaoHanh>("USP_INSERT_baohanh @ID @IDchitietDH @THOIGIANBAOHANH @STT", new SqlParameter("@ID",max+1),
-                                                                                                           new SqlParameter("@IDchitietDH", ct.MaChitietDH),
-                                                                                                           new SqlParameter("@THOIGIANBAOHANH","1 nam"),
-                                                                                                           new SqlParameter("@STT",1));
-                //end
+                y.SoLuong -= 1;      
                 db.SaveChanges();
             }
         }

@@ -34,10 +34,12 @@ namespace SellCamera.Areas.ADMIN.Controllers
 
         public ActionResult status(int? id)
         {
+
             var temp = db.Database.SqlQuery<StatusGuarantee>("USP_baohanh_khachhang @id",new SqlParameter("@id",id)).ToList();
             List<StatusGuarantee> model = new List<StatusGuarantee>();
             model = temp;
             return View("status",model);
         }
+       
     }
 }

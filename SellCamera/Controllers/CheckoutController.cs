@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SellCamera.Areas.ADMIN.model;
 
 namespace SellCamera.Controllers
 {
@@ -40,6 +41,8 @@ namespace SellCamera.Controllers
             Account User = db.Accounts.Where(s => s.IDAccount == MaKH).FirstOrDefault();
             return PartialView("_ViewInfoCustomer", User);
         }
+
+        
         [HttpPost]
         public ActionResult result(Account user,string ghichu, string group2)
         {
@@ -49,13 +52,16 @@ namespace SellCamera.Controllers
             /*===================================*/
 
             /*cập nhật lại thông tin đơn hàng*/
-            if(group2 == null)
+            if (group2 == null)
             {
                 TempData["alertcheckout"] = "Bạn chưa chọn phương thức thanh toán";
                 TempData["AlertType"] = "alert-warning";
                 return RedirectToAction("index", "Checkout");
             }
-            else new DonhangKH().Checkout(MaKH, ghichu, group2);
+            else
+            {               
+                new DonhangKH().Checkout(MaKH, ghichu, group2);
+            }
             /*===================================*/
             return RedirectToAction("index", "Cart");
         }
