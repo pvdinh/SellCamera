@@ -14,7 +14,6 @@ namespace SellCamera.Areas.ADMIN.Controllers
         {
             var data = db.Sanphams.ToList();
             return View("View", data);
-
         }
     }
 }
