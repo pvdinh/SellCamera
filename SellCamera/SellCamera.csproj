@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
     <Compile Include="Areas\ADMIN\Controllers\GuaranteeController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\NhaCungCapController.cs" />
     <Compile Include="Areas\ADMIN\model\StatusGuarantee.cs" />
     <Compile Include="Areas\ADMIN\model\timkiemKH.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -3676,6 +3677,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\ADMIN\Data\" />
+    <Folder Include="Areas\ADMIN\Views\NhaCungCap\" />
     <Folder Include="assets\Image\Camera hành trình\" />
     <Folder Include="assets\Image\Phụ kiện camera\" />
     <Folder Include="assets\Image\Đầu ghi camera\" />
