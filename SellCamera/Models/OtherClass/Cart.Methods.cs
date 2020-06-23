@@ -71,26 +71,7 @@ namespace SellCamera.Models.OtherClass
                     y.SoLuong -= 1;
                 }
                 else ct.Soluong = 0;
-                db.SaveChanges();
-
-                // edit by slvp
-                int max;
-                if (db.BaoHanhs.Count() == 0)
-                {
-                    max = 0;
-                }
-                else
-                {
-                    var a = db.BaoHanhs.OrderByDescending(p => p.Mabaohanh).Select(s=>s.Mabaohanh).FirstOrDefault();
-                    max = a;                   
-                }
-              
-                db.Database.SqlQuery<BaoHanh>("USP_INSERT_baohanh @ID @IDchitietDH @THOIGIANBAOHANH @STT", new SqlParameter("@ID",max+1),
-                                                                                                           new SqlParameter("@IDchitietDH", ct.MaChitietDH),
-                                                                                                           new SqlParameter("@THOIGIANBAOHANH","1 nam"),
-                                                                                                           new SqlParameter("@STT",1));
-                //end
-                db.SaveChanges();
+                db.SaveChanges(); 
             }
         }
         public void subtract(int MaSP, int idKH)
