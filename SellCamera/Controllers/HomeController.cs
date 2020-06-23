@@ -15,7 +15,7 @@ namespace SellCamera.Controllers
         Cart cart = new Cart();
         public ActionResult Index()
         {
-            Session["user"] = 1003;
+            Session["user"] = 1006;
             return View();
         }
 
