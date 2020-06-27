@@ -130,12 +130,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
     <Compile Include="Areas\ADMIN\Controllers\GuaranteeController.cs" />
-    <Compile Include="Areas\ADMIN\Controllers\ProductController.cs" />
     <Compile Include="Areas\ADMIN\model\StatusGuarantee.cs" />
     <Compile Include="Areas\ADMIN\model\timkiemKH.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3637,7 +3637,6 @@
     <Content Include="Areas\ADMIN\Views\Guarantee\Index.cshtml" />
     <Content Include="Areas\ADMIN\Views\Guarantee\listKH.cshtml" />
     <Content Include="Areas\ADMIN\Views\Guarantee\status.cshtml" />
-    <Content Include="Areas\ADMIN\Views\Product\View.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3674,6 +3673,7 @@
     <Content Include="Views\Cart\_ViewCartInLayout.cshtml" />
     <Content Include="Views\Cart\_NoView.cshtml" />
     <Content Include="Views\Home\HistoryOrder.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
