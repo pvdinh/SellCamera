@@ -130,6 +130,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
     <Compile Include="Areas\ADMIN\Controllers\GuaranteeController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\NhaCungCapController.cs" />
+    <Compile Include="Areas\ADMIN\model\NCC.cs" />
     <Compile Include="Areas\ADMIN\model\StatusGuarantee.cs" />
     <Compile Include="Areas\ADMIN\model\timkiemKH.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -3637,6 +3639,9 @@
     <Content Include="Areas\ADMIN\Views\Guarantee\Index.cshtml" />
     <Content Include="Areas\ADMIN\Views\Guarantee\listKH.cshtml" />
     <Content Include="Areas\ADMIN\Views\Guarantee\status.cshtml" />
+    <Content Include="Areas\ADMIN\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\ADMIN\Views\NhaCungCap\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
