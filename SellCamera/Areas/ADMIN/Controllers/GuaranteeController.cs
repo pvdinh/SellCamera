@@ -26,7 +26,7 @@ namespace SellCamera.Areas.ADMIN.Controllers
         public ActionResult Index(int? id)
         {
             string s = Request.Form["name"];
-            var temp = db.Database.SqlQuery<Account>("USP_timKH @name @", new SqlParameter("@name",s)).ToList();
+            var temp = db.Database.SqlQuery<Account>("USP_timKH @name", new SqlParameter("@name",s)).ToList();
             List<Account> model = new List<Account>();
             model = temp;
              return View("listKH",model);

@@ -26,7 +26,7 @@
 
         [Required]
         [StringLength(500)]
-        [DisplayName("Tên Sản Phẩm")]
+        
         public string TenSP { get; set; }
         [Required]
         
