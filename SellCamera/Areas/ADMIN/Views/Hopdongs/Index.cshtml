@@ -1,0 +1,68 @@
+﻿@model IEnumerable<SellCamera.Models.Hopdong>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ADMIN/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>HỢP ĐỒNG</h2>
+
+@section table{
+    <li class="breadcrumb-item"><a href="@Url.Action("Index","Hopdongs")">HỢP ĐỒNG</a></li>
+}
+<p>
+    @Html.ActionLink("Thêm hợp đồng", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDHopdong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nhacungcap.TenNhaungcap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sanpham.TenSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngayky)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tongtien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.IDHopdong)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nhacungcap.TenNhaungcap)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Sanpham.TenSP)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ngayky)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.soluong)
+    </td>
+    <td>
+        @((item.soluong * item.Sanpham.Gia.GetValueOrDefault(0)).ToString()) VNĐ
+    </td>
+    <td>
+        @Html.ActionLink("Sửa", "Edit", new { id = item.IDHopdong }) |
+        @Html.ActionLink("Chi Tiết", "Details", new { id = item.IDHopdong }) |
+        @Html.ActionLink("Xóa", "Delete", new { id = item.IDHopdong })
+    </td>
+</tr>
+    }
+
+</table>
