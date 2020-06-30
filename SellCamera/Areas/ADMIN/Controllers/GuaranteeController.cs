@@ -61,6 +61,9 @@ namespace SellCamera.Areas.ADMIN.Controllers
 
         public ActionResult Del(int? id)
         {
+            var temp = db.ChitietDHs.Where(p => p.MaChitietDH == id).FirstOrDefault();
+            db.ChitietDHs.Remove(temp);
+            db.SaveChanges();
             return View("Index");
         }
     }

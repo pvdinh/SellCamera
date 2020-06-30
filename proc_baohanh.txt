@@ -1,0 +1,65 @@
+
+USE [SellCamera1]
+GO
+/****** Object:  StoredProcedure [dbo].[USP_baohanh_khachhang]    Script Date: 6/30/2020 2:57:57 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER FUNCTION [dbo].[FN_GETidBHtheo_idKH](@id int)
+RETURNS INT AS
+BEGIN
+                  DECLARE @idtemp INT 
+                  SELECT @idtemp= bh.Mabaohanh
+                  FROM DonhangKH dh,ChitietDH ct,BaoHanh bh,Account kh,Sanpham sp
+                  WHERE (dh.MaDH= ct.MaDH AND sp.MaSP= ct.MaSP AND dh.MaKH=@id AND kh.IDAccount = @id AND bh.MaChitietDH=ct.MaChitietDH)
+				  RETURN @idtemp 
+END
+GO
+
+
+
+ALTER FUNCTION [dbo].[FN_GETngayhethanbaohanh](@id int)
+RETURNS DATETIME AS
+BEGIN
+               DECLARE @temp DATETIME
+               SELECT @temp = bh.Ngayhetbaohanh 
+               FROM DonhangKH dh,ChitietDH ct,BaoHanh bh,Account kh,Sanpham sp
+               WHERE (dh.MaDH= ct.MaDH AND sp.MaSP= ct.MaSP AND dh.MaKH=@id AND kh.IDAccount = @id AND bh.MaChitietDH=ct.MaChitietDH) 
+			   RETURN @temp
+END
+
+
+
+ALTER PROCEDURE [dbo].[USP_baohanh_khachhang]
+@id INT
+AS
+BEGIN
+
+   DECLARE @temp DATETIME
+   DECLARE @idtemp INT  
+   SET @temp = dbo.FN_GETngayhethanbaohanh(@id)
+   SET @idtemp = dbo.FN_GETidBHtheo_idKH(@id)         
+   SELECT kh.Hoten,kh.Phonenumber,dh.Ngaydatmua,sp.TenSP,ct.Soluong,ct.MaChitietDH,bh.sTT,bh.Ngayhetbaohanh,bh.Mabaohanh FROM DonhangKH dh,ChitietDH ct,BaoHanh bh,Account kh,Sanpham sp
+   WHERE (dh.MaDH= ct.MaDH AND sp.MaSP=ct.MaSP AND dh.MaKH=@id AND kh.IDAccount = @id AND bh.MaChitietDH=ct.MaChitietDH) 
+END
+GO
+
+
+
+
+
+ALTER PROCEDURE [dbo].[USP_chitietDH]
+@id INT
+AS
+BEGIN
+
+   DECLARE @temp DATETIME
+   DECLARE @idtemp INT  
+   SET @temp = dbo.FN_GETngayhethanbaohanh(@id)
+   SET @idtemp = dbo.FN_GETidBHtheo_idKH(@id)
+   SELECT kh.Hoten,kh.Phonenumber,dh.Ngaydatmua,sp.TenSP,ct.Soluong,ct.MaChitietDH FROM DonhangKH dh,ChitietDH ct,Account kh,Sanpham sp
+   WHERE (dh.MaDH= ct.MaDH AND sp.MaSP= ct.MaSP AND dh.MaKH=@id AND kh.IDAccount = @id) 
+END
