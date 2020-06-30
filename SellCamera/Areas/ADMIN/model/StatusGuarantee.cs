@@ -12,6 +12,10 @@ namespace SellCamera.Areas.ADMIN.model
         public DateTime Ngaydatmua{ get; set; }
         public string TenSP{ get; set; }
         public int Soluong { get; set; }
+        public int MaChitietDH { get; set; }
         public int sTT { get; set; }
+        public DateTime Ngayhetbaohanh { get; set; }
+        public int Mabaohanh { get; set; }
+        public int MaSP { get; set; }
     }
 }

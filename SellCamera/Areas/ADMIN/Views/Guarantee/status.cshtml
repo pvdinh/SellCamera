@@ -55,8 +55,8 @@
                                                     </div>
                                                 </div>
                                             </th>
-                                            @if (item.sTT == 1)
-                                            {
+                                            @if (item.Ngayhetbaohanh < DateTime.Now)
+                                            {    
                                                 <td>
                                                     <span class="badge badge-dot mr-4">
                                                         <i class="bg-success"></i>
@@ -72,8 +72,16 @@
                                                         <span class="status">Hết Hạn</span>
                                                     </span>
                                                 </td>
-
-                                            }                                          
+                                                <th>
+                                                    <div class="media align-items-center">
+                                                        <div class="media-body">
+                                                            <a href="/ADMIN/Guarantee/Del?id=@item.MaChitietDH">
+                                                                xóa
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                            }
                                         </tr>
                                     </tbody>
                                 }
