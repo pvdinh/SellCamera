@@ -1,4 +1,4 @@
-namespace SellCamera.Models
+﻿namespace SellCamera.Models
 {
     using System;
     using System.Collections.Generic;
@@ -21,20 +21,24 @@ namespace SellCamera.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Required]
         public int MaSP { get; set; }
 
+        [Required]
         [StringLength(500)]
+        
         public string TenSP { get; set; }
-
+        [Required]
+        
         public int LoaiSP { get; set; }
-
+        [Required]
         public int HangSX { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Xuatxu { get; set; }
-
-        public double Gia { get; set; }
+        [Required]
+        public double? Gia { get; set; }
 
         [StringLength(100)]
         public string Mota { get; set; }

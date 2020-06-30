@@ -1,0 +1,59 @@
+﻿@model SellCamera.Models.Hopdong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/ADMIN/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hopdong</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nhacungcap.TenNhaungcap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nhacungcap.TenNhaungcap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sanpham.TenSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sanpham.TenSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngayky)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngayky)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soluong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tongtien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tongtien)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDHopdong }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
