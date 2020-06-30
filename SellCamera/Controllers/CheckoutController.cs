@@ -62,7 +62,7 @@ namespace SellCamera.Controllers
             else
             {
 
-                var list = new ChitietDH().getID_ctDH(user);
+                var list = new ChitietDHKH().getID_ctDH(user);
                
                 foreach(var item in list)
                 {

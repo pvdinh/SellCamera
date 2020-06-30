@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SellCamera.Models
 {
-    public partial class ChitietDH
+    public class ChitietDHKH
     {
         SellCameraDataModel db = new SellCameraDataModel();
         public List<ChitietDH> getID_ctDH(Account acc)
