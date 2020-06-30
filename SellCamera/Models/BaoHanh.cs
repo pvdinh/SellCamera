@@ -13,7 +13,7 @@ namespace SellCamera.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Mabaohanh { get; set; }
 
-        public int? MaSp { get; set; }
+        public int? MaChitietDH { get; set; }
 
         [StringLength(50)]
         public string thoigianbaohanh { get; set; }

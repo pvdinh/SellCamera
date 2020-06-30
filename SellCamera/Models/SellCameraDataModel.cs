@@ -68,7 +68,7 @@ namespace SellCamera.Models
             modelBuilder.Entity<ChitietDH>()
                 .HasMany(e => e.BaoHanhs)
                 .WithOptional(e => e.ChitietDH)
-                .HasForeignKey(e => e.MaSp);
+                .HasForeignKey(e => e.MaChitietDH);
 
             modelBuilder.Entity<HangSX>()
                 .Property(e => e.tenhang)

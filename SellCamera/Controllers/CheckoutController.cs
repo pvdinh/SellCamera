@@ -70,7 +70,7 @@ namespace SellCamera.Controllers
                     BaoHanh temp = new BaoHanh()
                     {
                         Mabaohanh = item.MaChitietDH,
-                        MaSp = item.MaSP,
+                        MaChitietDH = item.MaChitietDH,
                         thoigianbaohanh = "1 NĂM",
                         sTT = 1,
                         Ngayhetbaohanh = DateTime.Now.AddYears(+1)    
