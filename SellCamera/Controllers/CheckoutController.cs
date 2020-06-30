@@ -42,9 +42,9 @@ namespace SellCamera.Controllers
             return PartialView("_ViewInfoCustomer", User);
         }
 
-        
+
         [HttpPost]
-        public ActionResult result(Account user,string ghichu, string group2)
+        public ActionResult result(Account user, string ghichu, string group2)
         {
             int MaKH = int.Parse(Session["user"].ToString());
             /*cập nhật lại thông tin khách hàng*/
@@ -59,26 +59,31 @@ namespace SellCamera.Controllers
                 return RedirectToAction("index", "Checkout");
             }
             else
-            {             
+            {
                 new DonhangKH().Checkout(MaKH, ghichu, group2);
 
-                var list = new chitietDH_KH().getID_ctDH(MaKH);              
+                var list = new chitietDH_KH().getID_ctDH(MaKH);
 
                 foreach (var item in list)
                 {
                     var max = db.BaoHanhs.OrderByDescending(P => P.Mabaohanh).FirstOrDefault();
 
-                    BaoHanh temp = new BaoHanh()
+                    BaoHanh temp = new BaoHanh();
+                    if (max != null)
                     {
-                       
-                        Mabaohanh = max.Mabaohanh+1,
-                        MaChitietDH = item.MaChitietDH,
-                        thoigianbaohanh = "1 NĂM",
-                        sTT = 1,
-                        Ngayhetbaohanh = DateTime.Now.AddYears(+1)
-                    };
+                        temp.Mabaohanh = max.Mabaohanh + 1;
+                    }
+                    else
+                    {
+                        temp.Mabaohanh = 1;
+                    }
+                    temp.MaChitietDH = item.MaChitietDH;
+                    temp.thoigianbaohanh = "1 NĂM";
+                    temp.sTT = 1;
+                    temp.Ngayhetbaohanh = DateTime.Now.AddYears(+1);
                     db.BaoHanhs.Add(temp);
                     db.SaveChanges();
+
                 }
             }
             /*===================================*/
