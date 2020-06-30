@@ -1,100 +1,109 @@
-﻿@model IEnumerable<SellCamera.Models.OtherClass.InfoProduct>         
+﻿@model IEnumerable<SellCamera.Models.OtherClass.InfoProduct>
 
-   <!-- BEGIN CONTENT -->
-<div class="col-md-9 col-sm-8">
-    <h2>Three items</h2>
-    <div class="owl-carousel owl-carousel3">
+    <!-- BEGIN CONTENT -->
+    <div class="col-md-9 col-sm-8">
+        <h2>Three items</h2>
+        <div class="owl-carousel owl-carousel3">
 
             @foreach (var item in Model)
             {
-            <div>
-                <div class="product-item">
-                    <div class="pi-img-wrapper">
-                        <img src="~/assets/Image/@item.TenLoai/@item.tenhang.Replace(" ",string.Empty)/@item.Anh" class="img-responsive" alt="@item.TenSP">
-                        <div>
-                            <a href="#" class="btn btn-default fancybox-button">Zoom</a>
-                            <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                <div>
+                    <div class="product-item">
+                        <div class="pi-img-wrapper">
+                            <img src="~/assets/Image/@item.TenLoai/@item.tenhang.Replace(" ",string.Empty)/@item.Anh" class="img-responsive" alt="@item.TenSP">
+                            <div>
+                                <a href="#" class="btn btn-default fancybox-button">Zoom</a>
+                                <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                            </div>
+                        </div>
+                        <h3><a href="shop-item.html">@item.TenSP</a></h3>
+                        <div class="pi-price">@item.Gia</div>
+                        <a href="/cart/index?MaSP=@item.MaSP" class="btn btn-default add2cart">Thêm vào giỏ</a>
+                        <div class="sticker sticker-new"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <!-- BEGIN TWO PRODUCTS & PROMO -->
+    <div class="row margin-bottom-35 ">
+        <!-- BEGIN TWO PRODUCTS -->
+        <div class="col-md-6 two-items-bottom-items">
+            <h2>Two items</h2>
+            <div class="owl-carousel owl-carousel2">
+                
+                
+                <div>
+                    <div class="product-item">
+                        <div class="pi-img-wrapper">
+                            <img src="~/assets/Image/Camera Wifi/Vitacam/camera-wifi-khong-day-vitacam-db02-b.jpg" class="img-responsive" alt="Berry Lace Dress">
+                            <div>
+                                <a href="assets/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                                <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                            </div>
+                        </div>
+                        <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                        <div class="pi-price">$29.00</div>
+                        <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="product-item">
+                        <div class="pi-img-wrapper">
+                            <img src="~/assets/Image/Camera Wifi/J-TECH/camera-wifi-j-tech-hd6600b-quay-360-do-dam-thoai-2-chieu-2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                            <div>
+                                <a href="assets/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                                <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                            </div>
+                        </div>
+                        <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                        <div class="pi-price">$29.00</div>
+                        <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="product-item">
+                        <div class="pi-img-wrapper">
+                            <img src="~/assets/Image/Camera Wifi/J-TECH/camera-wifi-hong-ngoai-khong-day-j-tech-hd5725w3.jpg" class="img-responsive" alt="Berry Lace Dress">
+                            <div>
+                                <a href="assets/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                                <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                            </div>
+                        </div>
+                        <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                        <div class="pi-price">$29.00</div>
+                        <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END TWO PRODUCTS -->
+        <!-- BEGIN PROMO -->
+        <div class="col-md-4 shop-index-carousel">
+            <div class="content-slider">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="~/assets/Image/Camera Wifi/Ezviz/camera-chuong-cua-wifi-ezviz-db1-cs-db1-a0-1b3wpfr-3.jpg" alt="Berry Lace Dress">
+                        </div>
+                        <div class="item">
+                            <img src="~/assets/Image/Camera Wifi/Hikvision/camera-ip-wifi-2mp-1080p-hilook-ipc-c120-d-w-g1.jpg" alt="Berry Lace Dress">
+                        </div>
+                        <div class="item">
+                            <img src="~/assets/Image/Camera Wifi/J-TECH/camera-wifi-hong-ngoai-j-tech-hd5637w3-a.jpg" alt="Berry Lace Dress">
                         </div>
                     </div>
-                    <h3><a href="shop-item.html">@item.TenSP</a></h3>
-                    <div class="pi-price">@item.Gia</div>
-                    <a href="/cart/index?MaSP=@item.MaSP" class="btn btn-default add2cart">Thêm vào giỏ</a>
-                    <div class="sticker sticker-new"></div>
                 </div>
-            </div>
-            }
-
-        @*<div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="assets/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
             </div>
         </div>
-        <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="assets/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-        </div>
-        <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="assets/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress4</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                <div class="sticker sticker-sale"></div>
-            </div>
-        </div>
-        <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-        </div>
-        <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                        <a href="assets/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress6</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-        </div>*@
+        <!-- END PROMO -->
     </div>
-</div>
-<!-- END CONTENT -->
+    <!-- END TWO PRODUCTS & PROMO -->
