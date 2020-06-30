@@ -3688,6 +3688,7 @@
     <Content Include="Views\Cart\_NoView.cshtml" />
     <Content Include="Views\Home\HistoryOrder.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Home\_ViewProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

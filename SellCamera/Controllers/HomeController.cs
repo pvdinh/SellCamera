@@ -13,12 +13,20 @@ namespace SellCamera.Controllers
     {
         SellCameraDataModel db = new SellCameraDataModel();
         Cart cart = new Cart();
+        List<InfoProduct> data = new List<InfoProduct>();
         public ActionResult Index()
         {
             Session["user"] = 1006;
             return View();
         }
-
+        public ActionResult ViewListProduct()
+        {
+            Session["count"] = 12; //kiểm soát số lượng hiển thị sản phẩm
+            Session["temp"] = 1;  //trạng thái phát hiện đang ở loại sp nào
+            data = db.Database.SqlQuery<InfoProduct>("get_product_discount").ToList();
+            data.Where(s => s.LoaiSP == 2222).Take(8).ToList();
+            return PartialView("_ViewProduct", data);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

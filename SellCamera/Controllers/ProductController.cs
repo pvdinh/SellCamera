@@ -24,17 +24,16 @@ namespace SellCamera.Controllers
                 if (ttkm != null)
                     ViewBag.ttkm = ttkm;
             }
-
-            //kiểm tra hàng còn hay không
             InfoProduct data = new InfoProduct();
-            List<InfoProduct> model = new List<InfoProduct>();
+            //List<InfoProduct> model = new List<InfoProduct>();
             if (data.MaSP == id)
             {
-                model = db.Database.SqlQuery<InfoProduct>("get_product_discount").ToList();
+                data = db.Database.SqlQuery<InfoProduct>("get_product_discount").FirstOrDefault();
             }
+            //kiểm tra hàng còn hay không
             var status = db.Sanphams.Where(s => s.MaSP == id).Select(s => s.SoLuong).FirstOrDefault();
             ViewBag.status = status;
-            return View(model);
+            return View(data);
         }
     }
 }

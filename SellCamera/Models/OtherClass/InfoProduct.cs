@@ -10,6 +10,7 @@ namespace SellCamera.Models.OtherClass
         public int MaSP { get; set; }
         public string TenSP { get; set; }
         public int LoaiSP { get; set; }
+        public int MaLoai { get; set; }
         public string TenLoai { get; set; }
         public int HangSX { get; set; }
         public string Anh { get; set; }
