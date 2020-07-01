@@ -14,7 +14,11 @@ namespace SellCamera.Models.OtherClass
         public void Init(int idKh)
         {
             DonhangKH x = new DonhangKH();
-            x.MaDH = db.DonhangKHs.OrderByDescending(s=>s.MaDH).Select(s=>s.MaDH).FirstOrDefault() + 1;
+            if (db.DonhangKHs.ToList().Count() > 1)
+            {
+                x.MaDH = db.DonhangKHs.OrderByDescending(s => s.MaDH).Select(s => s.MaDH).FirstOrDefault() + 1;
+            }
+            else x.MaDH = 1;
             x.MaKH = idKh;
             x.Phivanchuyen = 0;
             x.PhuongthucTT = "NULL";
@@ -58,7 +62,11 @@ namespace SellCamera.Models.OtherClass
             else
             {
                 ChitietDH ct = new ChitietDH();
-                ct.MaChitietDH = db.ChitietDHs.OrderByDescending(s => s.MaChitietDH).Select(s => s.MaChitietDH).FirstOrDefault() + 1;
+                if (db.ChitietDHs.ToList().Count() > 0)
+                {
+                    ct.MaChitietDH = db.ChitietDHs.OrderByDescending(s => s.MaChitietDH).Select(s => s.MaChitietDH).FirstOrDefault() + 1;
+                }
+                else ct.MaChitietDH = 1;
                 ct.MaDH = Dhkh.MaDH;
                 ct.MaSP = MaSP;
                 ct.Soluong = 1;
